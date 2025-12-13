@@ -21,7 +21,7 @@ class Solution(object):
         j = n-1
         k = m+n-1
         while j >= 0:
-            if i >= 0 and nums1[i] > nums2[j]:  # i has the possiblity to go out of index so use it wisely
+            if i >= 0 and nums1[i] > nums2[j]:  # i has the possiblity to go out of index so use it wisely [2,0], [1]
                 nums1[k] = nums1[i]
                 i -= 1
             else:

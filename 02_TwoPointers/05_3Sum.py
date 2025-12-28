@@ -22,14 +22,11 @@ class Solution:
                     back -= 1
                 else:
                     result.append([nums[i], nums[front], nums[back]])
-                    while(front < back and nums[front] == nums[front+1]):
+                    second = nums[front]
+                    while(front < back and nums[front] == second):
                         front += 1
-                    while(front < back and nums[back] == nums[back-1]):
+                    third = nums[back]
+                    while(front < back and nums[back] == third):
                         back -= 1
-                    front += 1
-                    back -= 1 
         return result
-                
-            
-        
         

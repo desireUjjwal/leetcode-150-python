@@ -10,32 +10,30 @@
 # Return an array of the starting indices of all the concatenated substrings in s. You can return the answer in any order.
 
 class Solution:
-    def checkSubstring(self, mp, subStr, wordLen):
-        for j in range(0, len(subStr), wordLen):
-            w = subStr[j: j+wordLen]
-            if w in mp:
-                mp[w] -= 1
-                if mp[w] == -1:
+    def checkSubstring(self, wordCount, subStr, wordLen):
+        for s in range(0, len(subStr), wordLen):
+            word = subStr[s: s+wordLen]
+            if word in wordCount:
+                wordCount[word] -= 1
+                if(wordCount[word] == -1):
                     return False
             else:
                 return False
         return True
-    
+
+
     def findSubstring(self, s: str, words: List[str]) -> List[int]:
         res = []
         wordLen = len(words[0])
-        sLen = len(s)
-        wordsWindow = len(words) * wordLen
-        mp = dict()
-        for x in words:
-            if x in mp:
-                mp[x] += 1
-            else:
-                mp[x] = 1
+        windowSize = len(words) * wordLen
+        wordsCount = {}
+        for w in words:
+            wordsCount[w] = 1 + wordsCount.get(w, 0)
+
         i = 0
-        while(i + wordsWindow <= sLen):
-            if(self.checkSubstring(mp.copy(), s[i:i+wordsWindow], wordLen)):
+        while(i + windowSize <= len(s)):
+            if(self.checkSubstring(wordsCount.copy(), s[i: i + windowSize], wordLen) == True):
                 res.append(i)
             i += 1
         return res
-        
+    

@@ -25,7 +25,7 @@ class Solution:
         res.append(newInterval)
         return res
 
-  # Another approach but tricky better to go with above approach if found something similar to this
+  # Another approach
   class Solution:
     def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
         res = []
@@ -34,7 +34,7 @@ class Solution:
         while(i < n and intervals[i][1] < newInterval[0]):
             res.append(intervals[i])
             i += 1
-        while(i < n and intervals[i][0] <= newInterval[1]):  # very tricky condition to merge, hard to visualize while solving
+        while(i < n and intervals[i][0] <= newInterval[1]):  # tricky condition
             min_el = min(newInterval[0], intervals[i][0])
             max_el = max(newInterval[1], intervals[i][1])
             newInterval = [min_el, max_el]

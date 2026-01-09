@@ -34,7 +34,7 @@ class Solution:
         while(i < n and intervals[i][1] < newInterval[0]):
             res.append(intervals[i])
             i += 1
-        while(i < n and intervals[i][0] <= newInterval[1]):  # tricky condition
+        while(i < n and intervals[i][0] <= newInterval[1]):  # condition for merging limits in the newInterval
             min_el = min(newInterval[0], intervals[i][0])
             max_el = max(newInterval[1], intervals[i][1])
             newInterval = [min_el, max_el]

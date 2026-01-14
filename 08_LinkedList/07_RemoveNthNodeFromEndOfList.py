@@ -17,9 +17,9 @@ class Solution:
         count_from_beg = count - n
         if count_from_beg == 0:
             return head.next
-        i = 0
+        i = 1
         curr = head
-        while i < count_from_beg-1:
+        while i < count_from_beg:
             i += 1
             curr = curr.next
 

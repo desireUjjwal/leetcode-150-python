@@ -26,3 +26,28 @@ class Solution:
                 curr.next = ListNode(key)
                 curr = curr.next
         return dummy.next
+
+# More time and space optimized approach
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        dummy = ListNode(0)
+        curr = head
+        prev = dummy
+        while curr:
+            if curr.next and curr.next.val == curr.val:
+                val = curr.val
+                while curr and curr.val == val:
+                    curr = curr.next
+                prev.next = curr
+            else:
+                prev.next = curr
+                prev = curr
+                curr = curr.next
+        return dummy.next
+            

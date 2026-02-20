@@ -18,16 +18,16 @@ class Solution:
             "9" : "wxyz"
         }
 
-        def helper(i, ds, ans):
+        def helper(i, ds):
             if(i == len(digits)):
                 ans.append(ds)
                 return
             string = phone_map[digits[i]]
             for j in range(len(string)):
                 ds += string[j]
-                helper(i+1, ds, ans)
+                helper(i+1, ds)
                 ds = ds[:-1]
         ans = []
         ds = ''
-        helper(0, ds, ans)
+        helper(0, ds)
         return ans
